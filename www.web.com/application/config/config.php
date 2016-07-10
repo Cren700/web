@@ -1,4 +1,3 @@
-<?php
 
 $base_filename = basename(__FILE__);
 $config_filename = ROOT_PATH . "/system/config/" . ENVIRONMENT . "/{$base_filename}";
