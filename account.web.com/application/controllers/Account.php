@@ -23,10 +23,10 @@ class Account extends BaseControllor {
 	 */
 	public function addAccount()
 	{
-		$username = trim($this->input->get('username'));
-		$pwd = trim($this->input->get('pwd'));
-		$table_type = intval($this->input->get('table_type')); // 0: admin, 1: merchant
-		$role_type = intval($this->input->get('role_type')); // 0:普通管理员 1:超级管理员
+		$username = trim($this->input->post('username'));
+		$pwd = trim($this->input->post('pwd'));
+		$table_type = intval($this->input->post('table_type')); // 0: admin, 1: account
+		$role_type = intval($this->input->post('role_type')); // 0:普通管理员 1:超级管理员
 		$res = $this->account_service_model->addAccount($username, $pwd, $table_type, $role_type) ;
 		echo outPutJsonData($res);
 	}

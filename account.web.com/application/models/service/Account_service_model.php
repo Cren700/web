@@ -54,7 +54,7 @@ class Account_service_model extends MY_Model
         }
     }
 
-    public function accountLogin($username, $pwd, $type)
+    public function accountLogin($username, $pwd, $table_type)
     {
         // 数据验证
         $validationConfig = array(
@@ -75,13 +75,14 @@ class Account_service_model extends MY_Model
                 return $resValidation;
             }
         }
-        $info = $this->account_dao_model->getInfoByUsername($username, $type);
+        $info = $this->account_dao_model->getInfoByUsername($username, $table_type);
         if (!$info) return array('code' => 'account_error_0'); // 账户不存在
         $pwdCode = encodePwd(0, $info['salt'], $pwd);
         if ($info['pwd'] !== $pwdCode) {
             return array('code' => 'account_error_1');         // 账户密码不一致
         } else {
-            return array('code' => 0);
+            $resData = array('id' => $info['id'], 'type' => $info['type'], 'username' => $info['username']);
+            return array('code' => 0, 'data' => $resData);
         }
     }
 

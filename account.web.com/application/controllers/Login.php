@@ -18,9 +18,9 @@ class Login extends MY_Controller
      */
     public function adminAccountLogin()
     {
-        $username = trim($this->input->get('username'));
-        $pwd = trim($this->input->get('pwd'));
-        $table_type = trim($this->input->get('table_type'));
+        $username = trim($this->input->post('username'));
+        $pwd = trim($this->input->post('pwd'));
+        $table_type = trim($this->input->post('table_type'));
         $res = $this->account_service_model->accountLogin($username, $pwd, $table_type);
         echo outPutJsonData($res);
     }

@@ -59,6 +59,7 @@ function encodePwd($type, $salt, $pwd)
  */
 function dbEscape($data)
 {
+    $tmp = '';
     if (is_array($data)) {
         $tmp = array();
         foreach ($data as $k => $v) {
@@ -151,4 +152,12 @@ function validationData($data, $rules, $field)
         if (!empty($res)) return $res;
     }
     return $res;
+}
+
+function baseCssUrl($uri){
+    return '/assets/css/' . $uri;
+}
+
+function baseJsUrl($uri){
+    return '/assets/js/' . $uri;
 }

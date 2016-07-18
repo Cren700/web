@@ -19,4 +19,9 @@ $config = array(
     'account_error_1' => array( 'code' => 100001, 'msg'=> '用户账号密码不一致'),            //用户账号密码不一致
     'account_error_2' => array( 'code' => 100002, 'msg'=> '用户名已存在'),                 //用户名已存在
     'account_error_3' => array( 'code' => 100003, 'msg'=> '添加数据错误'),                 //添加数据错误
+
+
+    // product 200000 ~ 299999
+    'product_error_1' => array( 'code' => 200001, 'msg'=> '添加产品错误'),                 //添加产品数据错误
+
 );
