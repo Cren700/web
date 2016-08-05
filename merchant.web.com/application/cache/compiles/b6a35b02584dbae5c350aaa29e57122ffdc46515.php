@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2016-07-13 23:35:45
+<?php /* Smarty version Smarty-3.1.19, created on 2016-07-26 23:26:21
          compiled from "application/views/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:55791409757851cbbdabe75-23304425%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a4e02b1d7a3e7c01f044684700ed998f558225b9' => 
     array (
       0 => 'application/views/header.tpl',
-      1 => 1468424143,
+      1 => 1469546779,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'seo' => 0,
     'htmlCssArr' => 0,
     'css' => 0,
+    'mid' => 0,
+    'username' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -46,4 +48,10 @@ $_smarty_tpl->tpl_vars['css']->_loop = true;
     <script type="text/javascript" src="/assets/js/jquery-2.1.4.min.js"></script>
     <title><?php echo $_smarty_tpl->tpl_vars['seo']->value['title'];?>
 </title>
-</head><?php }} ?>
+</head>
+<?php if (isset($_smarty_tpl->tpl_vars['mid']->value)&&$_smarty_tpl->tpl_vars['mid']->value) {?>
+<div style="margin: 20px; font-size: 14px; color: #333;">
+    <p>Hello, <a href="/account.html" style="color: #E13300;"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</a></p>
+</div>
+<?php }?><?php }} ?>

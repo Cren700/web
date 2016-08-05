@@ -37,4 +37,28 @@ class Product_service_model extends MY_Model
         }
     }
 
+    public function getProductById($pid)
+    {
+        $result = array('code' => 0);
+        $res = $this->product_dao_model->getProductById($pid);
+        if (!empty($res)) {
+            $result['data']['productList'] = $res;
+        } else {
+            $result = array('code' => 'product_error_2');
+        }
+        return $result;
+    }
+
+    public function getProductsByMid($mid)
+    {
+        $result = array('code' => 0);
+        $res = $this->product_dao_model->getProductsByMid($mid);
+        if (!empty($res)) {
+             $result['data']['productList'] = $res;
+        } else {
+            $result = array('code' => 'product_error_2');
+        }
+        return $result;
+    }
+
 }

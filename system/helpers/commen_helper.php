@@ -96,7 +96,26 @@ function outPutJsonData($data)
     if ($data['code'] !== 0) {
         $data = errorCode($data);
     }
+    isset($data['data']) ? filterOutData($data['data']) : '';
     return json_encode($data);
+}
+
+/**
+ * 去除\',入库前处理的数据
+ * @param $data
+ * @return $data
+ */
+function filterOutData(&$data)
+{
+    if(is_array($data)){
+        foreach ($data as &$d){
+            filterOutData($d);
+        }
+    }
+    if(is_string($data)){
+        $data = stripslashes($data);
+    }
+    return $data;
 }
 
 /**

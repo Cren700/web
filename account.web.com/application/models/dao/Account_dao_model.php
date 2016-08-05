@@ -10,6 +10,7 @@ class Account_dao_model extends MY_Model
 {
     private $_account_admin_table = 'cr_admins';
     private $_account_merchant_table = 'cr_merchants';
+    private $account ;
     public function __construct()
     {
         parent::__construct();
@@ -57,6 +58,18 @@ class Account_dao_model extends MY_Model
             $_table = $this->_account_merchant_table;
         }
         $query = $this->account->get_where($_table, $data, 1);
+        return $query->row_array();
+    }
+
+    /**
+     * 获取商户信息
+     * @param $mid
+     * @return mixed
+     */
+    public function getMerchantInfo($mid)
+    {
+        $where = array('id' => $mid);
+        $query = $this->account->get_where($this->_account_merchant_table, $where, 1);
         return $query->row_array();
     }
 

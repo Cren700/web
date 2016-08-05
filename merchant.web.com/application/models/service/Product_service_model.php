@@ -12,6 +12,7 @@ class Product_service_model extends MY_Model
     public function __construct()
     {
         parent::__construct();
+        $this->load->config('common');
     }
 
     public function add($product_name, $product_description, $sale_price, $market_price, $product_protocol, $promotion_tag, $product_tag, $product_detail, $create_time)
@@ -29,5 +30,11 @@ class Product_service_model extends MY_Model
             'mid'                   => $this->mid,
         );
         return $this->myCurl($this->_host, 'addProduct', $data, true);
+    }
+
+    public function getProducts()
+    {
+        $data['mid'] = $this->_mid;
+        return $this->myCurl($this->_host, 'getProductsByMid', $data, true);
     }
 }

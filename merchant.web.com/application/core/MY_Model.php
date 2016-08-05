@@ -8,13 +8,13 @@
  */
 class MY_Model extends CI_Model
 {
-    protected $mid = '';
-    protected $username = '';
+    protected $_mid = '';
+    protected $_username = '';
     public function __construct()
     {
         parent::__construct();
-        $this->mid = $this->session->userdata('mid');
-        $this->username = $this->session->userdata('username');
+        $this->_mid = $this->session->userdata('mid');
+        $this->_username = $this->session->userdata('username');
     }
 
     /**

@@ -34,12 +34,15 @@ class MY_Controller extends CI_Controller
         elseif(is_string($data)){
             $data = trim($data);
         }
+        elseif(is_numeric($data)){
+            $data = intval($data);
+        }
         return $data;
     }
 
 }
 
-class BaseControllor extends MY_Controller{
+class BaseController extends MY_Controller{
     public function __construct(){
         parent::__construct();
     }

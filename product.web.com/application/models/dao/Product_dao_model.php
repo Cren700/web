@@ -20,4 +20,18 @@ class Product_dao_model extends MY_Model
         return $this->db->insert($this->_product_tabel, $data);
     }
 
+    public function getProductById($pid)
+    {
+        $where = array('id' => $pid);
+        $query = $this->db->get_where($this->_product_tabel, $where, 1);
+        return $query->result_array();
+    }
+
+    public function getProductsByMid($mid)
+    {
+        $where = array('mid' => $mid);
+        $query = $this->db->get_where($this->_product_tabel, $where);
+        return $query->result_array();
+    }
+
 }

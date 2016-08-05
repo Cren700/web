@@ -1,1 +1,1 @@
-hello, world. -- Cren
+hello, world. <{$username}>

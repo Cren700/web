@@ -3,7 +3,7 @@ $(function(){
         var username = $("input[name='username']").val();
         var pwd = $("input[name='pwd']").val();
         var data = {'username':username, 'pwd':pwd};
-        var url = '/account/handelLogin.html';
+        var url = '/login/handelLogin.html';
         $.ajax({
             type: 'POST',
             url : url,

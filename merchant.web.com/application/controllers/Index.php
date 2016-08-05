@@ -2,11 +2,12 @@
 
 /**
  * Index.php
+ * 首页
  * Author   : cren
  * Date     : 16/7/16
  * Time     : 下午2:55
  */
-class Index extends MY_Controller
+class Index extends BaseController
 {
     public function __construct(){
         parent::__construct();

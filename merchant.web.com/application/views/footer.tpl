@@ -5,5 +5,6 @@
     <{foreach $htmlJsArr as $js}>
         <script type="text/javascript" src="<{$js.src}>"></script>
     <{/foreach}>
+<{else}>
 <{/if}>
 

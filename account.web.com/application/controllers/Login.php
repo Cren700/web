@@ -14,13 +14,13 @@ class Login extends MY_Controller
         $this->load->model('service/account_service_model');
     }
     /**
-     * 管理员登录接口
+     * 管理员统一登录接口
      */
     public function adminAccountLogin()
     {
-        $username = trim($this->input->post('username'));
-        $pwd = trim($this->input->post('pwd'));
-        $table_type = trim($this->input->post('table_type'));
+        $username = $this->input->post('username');
+        $pwd = $this->input->post('pwd');
+        $table_type = $this->input->post('table_type');
         $res = $this->account_service_model->accountLogin($username, $pwd, $table_type);
         echo outPutJsonData($res);
     }

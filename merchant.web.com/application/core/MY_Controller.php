@@ -9,8 +9,8 @@
 class MY_Controller extends CI_Controller
 {
 
-    private $mid = '';
-    private $username = '';
+    protected $_mid = '';
+    protected $_username = '';
     public function __construct(){
         parent::__construct();
         $this->load->library("session");
@@ -46,8 +46,10 @@ class MY_Controller extends CI_Controller
         $seoArr = array('keywords' => 'cren,www', 'description' => 'Cren -> description', 'title' => 'Hello, Cren');
         $this->smarty->assign('seo', $seoArr);
 
-        $this->mid = $this->session->userdata('mid');
-        $this->username = $this->session->userdata('username');
+        $this->_mid = $this->session->userdata('mid');
+        $this->_username = $this->session->userdata('username');
+        $this->smarty->assign('username', $this->_username);
+        $this->smarty->assign('mid', $this->_mid);
     }
 
     /**
@@ -77,9 +79,14 @@ class MY_Controller extends CI_Controller
 
 }
 
-class BaseControllor extends MY_Controller{
+class BaseController extends MY_Controller
+{
     public function __construct(){
         parent::__construct();
+        if (!$this->_mid) {
+            header("Location: /login/index", true, 302);
+            exit;
+        }
     }
 
 

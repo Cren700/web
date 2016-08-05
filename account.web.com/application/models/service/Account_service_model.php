@@ -77,13 +77,31 @@ class Account_service_model extends MY_Model
         }
         $info = $this->account_dao_model->getInfoByUsername($username, $table_type);
         if (!$info) return array('code' => 'account_error_0'); // 账户不存在
-        $pwdCode = encodePwd(0, $info['salt'], $pwd);
+        $pwdCode = encodePwd($table_type, $info['salt'], $pwd);
         if ($info['pwd'] !== $pwdCode) {
             return array('code' => 'account_error_1');         // 账户密码不一致
         } else {
-            $resData = array('id' => $info['id'], 'type' => $info['type'], 'username' => $info['username']);
+            $resData = array('id' => $info['id'], 'username' => $info['username']);
             return array('code' => 0, 'data' => $resData);
         }
+    }
+
+
+    public function getMerchantInfo($mid)
+    {
+        $res = $this->account_dao_model->getMerchantInfo($mid);
+        if ( !empty($res) ){
+            $result = array(
+                'code' => 0,
+                'data' => array(
+                    'address'           => $res['address'],
+                    'phone_number'      => $res['phone_number']
+                )
+            );
+        } else {
+            $result = array('code' => 'product_error_2');
+        }
+        return $result;
     }
 
 }

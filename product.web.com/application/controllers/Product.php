@@ -25,5 +25,19 @@ class Product extends BaseControllor {
 		echo outPutJsonData($res);
 	}
 
+	public function getDetail($pid = 0)
+	{
+		$pid = $this->input->get('id');
+		$res = $this->product_service_model->getProductById($pid);
+		echo outPutJsonData($res);
+	}
+
+	public function getProductsByMid()
+	{
+		$mid = $this->input->post('mid');
+		$res = $this->product_service_model->getProductsByMid($mid);
+		echo outPutJsonData($res);
+	}
+
 
 }
