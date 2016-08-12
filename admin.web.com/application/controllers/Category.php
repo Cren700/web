@@ -112,6 +112,61 @@ class Category extends BaseController
         }
     }
 
+    public function tagList()
+    {
+        $res = $this->category_service_model->getTagList();
+        if($res['code'] !== 0) {
+            header("Location:/category.html");
+        } else {
+            $this->smarty->assign('data', $res['data']);
+            $this->smarty->display('category/tagList.tpl');
+        }
+    }
+
+    public function manageTagStatus()
+    {
+        $tagId = intval($this->input->get('tag_id'));
+        $status = intval($this->input->get('status'));
+        $where = array('id' => $tagId);
+        $data = array('status' => 1- $status);
+        $res = $this->category_service_model->updateTag($where, $data);
+        echo json_encode($res);
+    }
+
+    public function manageTag()
+    {
+        $tag_id = $this->input->get('tag_id');
+        $res = $this->category_service_model->getTagInfoByTagId($tag_id);
+        if ($res['code'] === 0) {
+            $tagInfo = $res['data'];
+            $cate_id = $tagInfo['cate_id'];
+        } else {
+            header("Location:/category.html");
+        }
+        $this->smarty->assign('tagInfo', $tagInfo);
+        $this->smarty->assign('tag_id', $tag_id);
+        $this->smarty->assign('cate_id', $cate_id);
+        $this->smarty->display('category/addTag.tpl');
+    }
+    
+    public function doManageTag()
+    {
+        $cate_id = intval($this->input->post('cate_id'));
+        $tag_id = intval($this->input->post('tag_id'));
+        $tag_name = $this->input->post('tagName');
+        $priority = intval($this->input->post('priority'));
+        $status = intval($this->input->post('status'));
+
+        $where = array('id' => $tag_id);
+        $data = array('tag_name' => $tag_name, 'priority' => $priority, 'status' => $status, 'last_time' => time());
+        $res = $this->category_service_model->updateTag($where, $data);
+        if ($res['code'] !== 0){
+            echo "添加出错";
+        } else {
+            header("Location:/category/taglist.html");
+        }
+    }
+
     
 
 

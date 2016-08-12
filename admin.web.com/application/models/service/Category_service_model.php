@@ -104,4 +104,36 @@ class Category_service_model extends MY_Model
         return $this->category_dao_model->addTag($data);
     }
 
+    public function getTagList()
+    {
+        $res = array('code' => 0, 'data' => array());
+        $data = $this->category_dao_model->getTagList();
+        if (!empty($data)) {
+            $res['data'] = $data;
+        }
+        return $res;
+    }
+
+    public function updateTag($where, $data)
+    {
+        $res = array('code' => 0);
+        $data = $this->category_dao_model->updateTag($where, $data);
+        if (!$data) {
+            $res['code'] = -1;
+        }
+        return $res;
+    }
+
+    public function getTagInfoByTagId($tag_id)
+    {
+        $res = array('code' => 0, 'data' => array());
+        $data = $this->category_dao_model->getTagInfoByTagId($tag_id);
+        if (!empty($data)) {
+            $res['data'] = $data;
+        } else {
+            $res['code'] = -1;
+        }
+        return $res;
+    }
+
 }

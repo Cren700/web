@@ -32,30 +32,30 @@
                     </ul>
                 </div>
                 <div class="base-infor-wrap">
-                    <form method="post" action="<{if !isset($data)}>/category/doaddtag.html<{else}>/category/updatetag.html<{/if}>">
+                    <form method="post" action="<{if !isset($tagInfo)}>/category/doaddtag.html<{else}>/category/domanagetag.html<{/if}>">
                         <ul>
                             <li class="clearfix">
                                 <span>标签名称</span>
-                                <input type="text" name="tagName" value="<{$data['tag_name']|default:''}>" />
+                                <input type="text" name="tagName" value="<{$tagInfo['tag_name']|default:''}>" />
                             </li>
                             <li class="clearfix">
                                 <span>优&nbsp;&nbsp;先&nbsp;&nbsp;级</span>
-                                <input type="text" name="priority" value="<{$data['priority']|default:''}>" />
+                                <input type="text" name="priority" value="<{$tagInfo['priority']|default:''}>" />
                             </li>
-                            <{if isset($data)}>
+                            <{if isset($tagInfo)}>
                             <li class="clearfix">
                                 <span>是否使用</span>
-                                <label for="">禁用:<input style="float: none;"  type="radio" name="status" value="0" <{if $data['status'] eq 0}>checked<{/if}>></label>
-                                <label for="">使用:<input style="float: none;" type="radio" name="status" value="1" <{if $data['status'] eq 1}>checked<{/if}>></label>
+                                <label for="">禁用:<input style="float: none;"  type="radio" name="status" value="0" <{if $tagInfo['status'] eq 0}>checked<{/if}>></label>
+                                <label for="">使用:<input style="float: none;" type="radio" name="status" value="1" <{if $tagInfo['status'] eq 1}>checked<{/if}>></label>
                             </li>
                             <{/if}>
                         </ul>
                         <div>
-                            <input type="submit" value="<{if !isset($data)}>添&nbsp;&nbsp;&nbsp;加<{else}>修&nbsp;&nbsp;&nbsp;改<{/if}>">
+                            <input type="submit" value="<{if !isset($tagInfo)}>添&nbsp;&nbsp;&nbsp;加<{else}>修&nbsp;&nbsp;&nbsp;改<{/if}>">
                             <input type="button" id="js-return-list" value="返回栏目列表">
                         </div>
                         <input type="hidden" name="cate_id" value="<{$cate_id}>">
-                        <{if isset($data)}>
+                        <{if isset($tagInfo)}>
                         <input type="hidden" name="tag_id" value="<{$tag_id}>">
                         <{/if}>
                     </form>

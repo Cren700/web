@@ -64,5 +64,26 @@ class Category_dao_model extends MY_Model
         return $this->db->affected_rows();
     }
 
+    public function getTagList()
+    {
+        $sql = "SELECT c.cate_name, c.id as cate_id, t.tag_name, t.id as tag_id, t.status, t.priority, t.last_time 
+                FROM {$this->_cate_table} AS c 
+                LEFT JOIN {$this->_cateTag_table} AS t ON c.id = t.cate_id 
+                ORDER BY c.priority ASC, t.priority ASC";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
+    public function updateTag($where, $data)
+    {
+        $this->db->update($this->_cateTag_table, $data, $where);
+        return $this->db->affected_rows();
+    }
+
+    public function getTagInfoByTagId($tag_id)
+    {
+        $query = $this->db->get_where($this->_cateTag_table, array('id' => $tag_id), 1);
+        return $query->row_array();
+    }
     
 }
