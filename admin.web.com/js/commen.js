@@ -38,32 +38,24 @@ function showTime(time)
 }
 
 
-//订单表中的操作选项
-function orderSelect(value, orderid)
+function urlBtn()
 {
-    if(value == "check")
-    {
-        window.location.href = "/order/checkorder?orderid="+orderid;
-    }
-    else if(value == "delivery")
-    {
-        window.location.href = "/order/deliveryorder?orderid="+orderid;
-    }
-    else if(value == "refund")
-    {
-        window.location.href = "/order/refundorder?orderid="+orderid;
-    }
-    else if(value == "link")
-    {
-        window.location.href = "/order/linkmer?orderid="+orderid;
-    }
-    else if(value == "editadd")
-    {
-        window.location.href = "/order/editadd?orderid="+orderid;
-    }
-    else
-        return false;
+    $('.js-url-btn').on('click', function () {
+        var url = $(this).attr('data-url');
+        location.href = url;
+    })
 }
+
+function uploadFile(ele) {
+
+    alert(1234);
+    
+}
+
+$(function () {
+    // init
+    urlBtn();
+})
 
 // $(function()
 // {

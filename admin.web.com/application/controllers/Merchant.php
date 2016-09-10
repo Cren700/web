@@ -11,7 +11,7 @@ class Merchant extends BaseController
 	{
 		$data = $this->merchant_service_model->index();
 		$this->smarty->assign("data", $data);
-		$this->smarty->display("merchant/index.tpl");
+		$this->smarty->display("merchant/detail.tpl");
 	}
 
 	public function update()

@@ -25,6 +25,6 @@ class Account extends BaseController
             echo $res['msg'];exit();
         }
         $this->smarty->assign('info', $res['data']);
-        $this->smarty->display('account/index.tpl');
+        $this->smarty->display('account/detail.tpl');
     }
 }

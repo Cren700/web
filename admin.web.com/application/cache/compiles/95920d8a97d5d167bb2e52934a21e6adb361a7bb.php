@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2016-08-04 23:15:52
+<?php /* Smarty version Smarty-3.1.19, created on 2016-08-14 00:20:53
          compiled from "application/views/category/tag.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:84899401157a218a2528979-89241070%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b59ef2ac362ae584eff01445c3a9905ed965e363' => 
     array (
       0 => 'application/views/category/tag.tpl',
-      1 => 1470322936,
+      1 => 1471105251,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'data' => 0,
     'list' => 0,
-    'cate_id' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -31,10 +30,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <title>栏目标签</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/mCustomScrollbar/jquery.mCustomScrollbar.css">
     <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/jquery.mCustomScrollbar.js"></script>
     <script type="text/javascript" src="/js/commen.js"></script>
 
     <style>.mCSB_container{margin-right:0;}</style>
@@ -61,7 +58,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </ul>
                 </div>
                 <?php if (isset($_smarty_tpl->tpl_vars['data']->value['tagList'])) {?>
-                <div class="base-infor-wrap">
+                <div class="new-commodity-wrap">
                     <ul>
                         <?php  $_smarty_tpl->tpl_vars['list'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['list']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['data']->value['tagList']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -69,7 +66,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['list']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['list']->_loop = true;
 ?>
                         <li class="clearfix">
-                            <button><?php echo $_smarty_tpl->tpl_vars['list']->value['tag_name'];?>
+                            <button class="js-url-btn" data-url="/article.html?tag_id=<?php echo $_smarty_tpl->tpl_vars['list']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['list']->value['tag_name'];?>
 </button>
                         </li>
                         <?php } ?>
@@ -78,9 +76,10 @@ $_smarty_tpl->tpl_vars['list']->_loop = true;
                 <?php } else { ?>
                 <p>暂无标签信息</p>
                 <?php }?>
-                <a href="/category/addtag.html?cate_id=<?php echo $_smarty_tpl->tpl_vars['cate_id']->value;?>
-">添加新标签</a>
-                <a href="/category/taglist.html">标签管理</a>
+                <p class="new-commodity-button clearfix">
+                    <input class="new-commodity-common-input js-url-btn" data-url="/category/addtag.html" type="button" value="添加新标签" />
+                    <input class="new-commodity-common-input js-url-btn" data-url="/category/taglist.html" type="button" value="标签管理" />
+                </p>
             </div>
         </div>
         <!-- 基本信息 end -->

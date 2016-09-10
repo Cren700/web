@@ -12,7 +12,7 @@ class Stat extends BaseController
     {
 //        $data = $this->stat_service_model->index();
 //        $this->smarty->assign('data',$data);
-        $this->smarty->display('stat/index.tpl');
+        $this->smarty->display('stat/detail.tpl');
     }
 
     //曲线图详情

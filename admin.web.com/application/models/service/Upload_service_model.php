@@ -27,7 +27,7 @@ class Upload_service_model extends MY_Model
         $ext = array_pop($file);
         $data = array('type' => $type, 'ext' => $ext);
 
-        $ret = $this->myCurl('upload', 'getToken', $data);
+        $ret = $this->myCurl('uploadify', 'getToken', $data);
 
         return array('uptoken' => isset($ret['data']['token']) ? $ret['data']['token'] : '');
     }

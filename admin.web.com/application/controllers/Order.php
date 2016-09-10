@@ -20,7 +20,7 @@ class Order extends BaseController
 		{
 			case 'index':
 				$status = '';
-				$display = "order/index.tpl";
+				$display = "order/detail.tpl";
 				break;
 			case 'unpaid':
 				$status = 1;
@@ -45,7 +45,7 @@ class Order extends BaseController
 			default:
 				$status = '';
 				$type = "";
-				$display = "order/index.tpl";
+				$display = "order/detail.tpl";
 				break;
 		}
 		$get['status'] = $status;

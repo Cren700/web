@@ -135,7 +135,7 @@ class PHPExcel_Shared_File
 	public static function sys_get_temp_dir()
 	{
 		if (self::$_useUploadTempDirectory) {
-			//  use upload-directory when defined to allow running on environments having very restricted
+			//  use uploadify-directory when defined to allow running on environments having very restricted
 			//      open_basedir configs
 			if (ini_get('upload_tmp_dir') !== FALSE) {
 				if ($temp = ini_get('upload_tmp_dir')) {

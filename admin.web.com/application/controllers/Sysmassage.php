@@ -13,7 +13,7 @@ class Sysmassage extends BaseController
 		$merchant_sysmsg_info = $this->sysmassage_service_model->getMerchantMassage();
 		// p($merchant_sysmsg_info);
 		$this->smarty->assign('merchant_sysmsg_info', $merchant_sysmsg_info);
-		$this->smarty->display('sysmassage/index.tpl');
+		$this->smarty->display('sysmassage/detail.tpl');
 	}
 
 	public function detail($msgid)

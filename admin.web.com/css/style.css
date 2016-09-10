@@ -122,7 +122,7 @@ input,select,textarea{outline: none;font-family: "Microsoft YaHei";}
 /*订单管理*/
 
 .wrap-right-content{padding:30px;}
-.wrap-right-title{border-bottom:2px solid #9ccd9e;}
+.wrap-right-title{border-bottom:2px solid #9ccd9e;margin-bottom:20px;}
 .wrap-right-title h2{padding-bottom:24px;font-size: 22px;color: #9d9d9d;font-weight:normal;}
 .wrap-right-title li{float:left;margin:0 6px;padding:0 17px;font-size:20px;color:#9e9e9e;border-bottom:4px solid transparent;}
 .wrap-right-title li.current,.wrap-right-title li:hover{border-bottom: 4px solid #5fb60f;color:#5fb60f;transition: all 0.5s;-webkit-transition: all 0.5s;-moz-transition: all 0.5s;-ms-transition: all 0.5s;-o-transition: all 0.5s;}
@@ -349,13 +349,13 @@ input,select,textarea{outline: none;font-family: "Microsoft YaHei";}
 /*商品管理--添加新商品*/
 
 .new-commodity-wrap{}
-.new-commodity-common{border-bottom: 1px solid #f0f0f0;}
+.new-commodity-common{}
 .new-commodity-common h2{padding: 25px 15px;font-size: 20px;color: #4b4b4b;}
 .new-commodity-inner{padding: 0 0 0 65px;}
 .new-commodity-block1{}
 .new-commodity-block1 div{margin: 0 0 20px;line-height: 36px;}
+.new-commodity-block1 div img{display: block;width: 278px;height: 278px;padding: 3px;border-radius: 5px; border: 1px solid #999}
 .new-commodity-block1 span,.new-commodity-block1 input,.new-commodity-block1 p{float: left;}
-.new-commodity-block1 span{width: 105px;font-size: 18px;color: #9d9d9d;text-align: right;line-height: 36px;}
 .new-commodity-block1 .new-commodity-input input{width: 570px;height: 36px;margin: 0 0 0 25px;padding: 5px;border: 1px solid #c5c5c5;border-radius: 5px;}
 .new-commodity-block1 p label,.new-commodity-radio p label{float: left;margin: 0 30px 0 25px;font-size: 14px;color: #5e5e5e;cursor: pointer;}
 .new-commodity-block1 .new-commodity-radio input,.new-commodity-radio input{margin: 11px 5px 0 0;}
@@ -365,10 +365,13 @@ input,select,textarea{outline: none;font-family: "Microsoft YaHei";}
 .new-commodity-size-color h3,.new-commodity-size-color .new_commodity-list{float: left;}
 .new-commodity-size-color h3{font-size: 18px;color: #9d9d9d;line-height: 36px;}
 .new-commodity-size{border-bottom: 1px solid #f0f0f0;}
-.new-commodity-button{}
+.new-commodity-button{margin:20px 10px}
 .new-commodity-button input{float: left;}
 .new-commodity-button input{width: 120px;height: 36px;margin: 0 10px 0 0;padding: 5px;line-height: 36px;font-size: 14px;font-family: "Microsoft YaHei";border: 1px solid #c5c5c5;border-radius: 5px;}
-.new-commodity-button input.new-commodity-common-input{width: 80px;height: 36px;background: #fff;line-height: 26px;text-align: center;font-size: 18px;color: #9d9d9d;cursor: pointer;}
+.new-commodity-button input.new-commodity-common-input{height: 36px;background: #fff;line-height: 26px;text-align: center;font-size: 18px;color: #9d9d9d;cursor: pointer;}
+.new-commodity-input span{width: 105px;font-size: 18px;color: #9d9d9d;text-align: right;line-height: 36px;}
+.new-commodity-input label{display: inline-block}
+
 .new_commodity-list{padding: 0 0 0 20px;}
 .new_commodity-list p{margin: 0 0 35px;}
 .new-commodity-history{line-height: 24px;}
@@ -408,7 +411,7 @@ input,select,textarea{outline: none;font-family: "Microsoft YaHei";}
 .new-block4-wrap li{float: left;margin: 0 20px 20px 0;border: 1px solid #cbcbcb;}
 .new-block4-wrap li img{display: block;width: 140px;height: 140px;}
 .new-commodity-block6{padding: 0 0 40px;}
-.new-commodity-block7{}
+.new-commodity-block7{margin: 10px 0}
 .new-commodity-block7 p{margin: 0 0 50px;font-size: 16px;color: #9d9d9d;}
 .new-commodity-block7 input{width: 130px;height: 36px;color: #fff;background: #62b0ff;line-height: 34px;border: 1px solid #3f9eff;font-size: 18px;cursor: pointer;border-radius: 5px;}
 .new-block5-list{margin: 0 0 25px;}
@@ -661,7 +664,7 @@ input,select,textarea{outline: none;font-family: "Microsoft YaHei";}
 
 /*响应式*/
 
-/*@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1440px) {
 
 	.wrap-table-content{
 		max-width: 1180px;
@@ -670,5 +673,5 @@ input,select,textarea{outline: none;font-family: "Microsoft YaHei";}
 	.wrap-right-parent{
 		min-width: 1180px;
 	}
-}*/
+}
 

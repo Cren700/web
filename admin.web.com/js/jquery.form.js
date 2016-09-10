@@ -127,7 +127,7 @@ $.fn.ajaxSubmit = function(options) {
             callbacks[i].apply(options, [data, status, $form]);
     };
 
-    // are there files to upload?
+    // are there files to uploadify?
     var files = $('input:file', this).fieldValue();
     var found = false;
     for (var j=0; j < files.length; j++)
@@ -213,7 +213,7 @@ $.fn.ajaxSubmit = function(options) {
             }
         }
 
-        // take a breath so that pending repaints get some cpu time before the upload starts
+        // take a breath so that pending repaints get some cpu time before the uploadify starts
         setTimeout(function() {
             // make sure form attrs are set
             var t = $form.attr('target'), a = $form.attr('action');

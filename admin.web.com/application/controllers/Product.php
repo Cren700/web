@@ -4,7 +4,7 @@ class Product extends BaseController
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('service/product_service_model');
+//        $this->load->model('service/product_service_model');
     }
 
     public function lists()
@@ -47,9 +47,9 @@ class Product extends BaseController
 
     public function add()
     {
-        $data = $this->product_service_model->add();
-        $this->smarty->assign('catalog', $data['catalog']);
-        $this->smarty->display('product/index.tpl');
+//        $data = $this->product_service_model->add();
+//        $this->smarty->assign('catalog', $data['catalog']);
+        $this->smarty->display('product/detail.tpl');
     }
 
     public function addHandle()

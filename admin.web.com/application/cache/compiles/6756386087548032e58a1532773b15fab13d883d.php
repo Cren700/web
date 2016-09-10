@@ -1,13 +1,13 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2016-08-07 21:06:55
-         compiled from "application/views/category/add.tpl" */ ?>
+<?php /* Smarty version Smarty-3.1.19, created on 2016-08-14 11:25:57
+         compiled from "application/views/category/detail.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124585782257a7326f7fef78-37655119%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'dc6bf3546bc4bdc0b86850cff281c62bdfc25cad' => 
     array (
-      0 => 'application/views/category/add.tpl',
-      1 => 1470324079,
+      0 => 'application/views/category/detail.tpl',
+      1 => 1471103814,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_57a7326f85c959_66650928',
   'variables' => 
   array (
     'fun_name' => 0,
     'data' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_57a7326f85c959_66650928',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_57a7326f85c959_66650928')) {function content_57a7326f85c959_66650928($_smarty_tpl) {?><html>
 <head>
@@ -68,18 +68,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             <li class="clearfix">
                                 <span>栏目名称</span>
                                 <input type="text" name="cateName" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['data']->value['cate_name'])===null||$tmp==='' ? '' : $tmp);?>
-" />
+"  autocomplete="off"  />
                             </li>
                             <li class="clearfix">
                                 <span>优&nbsp;&nbsp;先&nbsp;&nbsp;级</span>
                                 <input type="text" name="priority" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['data']->value['priority'])===null||$tmp==='' ? '' : $tmp);?>
-" />
+"  autocomplete="off" />
                             </li>
                             <?php if (isset($_smarty_tpl->tpl_vars['data']->value)) {?>
                             <li class="clearfix">
                                 <span>是否使用</span>
-                                <label for="">使用:<input style="float: none;" type="radio" name="is_delete" value="0" <?php if ($_smarty_tpl->tpl_vars['data']->value['is_delete']==0) {?>checked<?php }?>></label>
-                                <label for="">禁用:<input style="float: none;"  type="radio" name="is_delete" value="1" <?php if ($_smarty_tpl->tpl_vars['data']->value['is_delete']==1) {?>checked<?php }?>></label>
+                                <label for="">使用:<input style="float: none;" type="radio" name="status" value="1" <?php if ($_smarty_tpl->tpl_vars['data']->value['status']==1) {?>checked<?php }?>></label>
+                                <label for="">禁用:<input style="float: none;"  type="radio" name="status" value="0" <?php if ($_smarty_tpl->tpl_vars['data']->value['status']==0) {?>checked<?php }?>></label>
                             </li>
                             <?php }?>
                         </ul>

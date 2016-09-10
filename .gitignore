@@ -8,3 +8,14 @@
 .idea/web.iml
 
 .idea/workspace.xml
+
+
+*/application/cache/
+
+cms.web.com/
+
+admin.web.com/application/cache/
+
+admin.web.com/application/cache/*
+
+admin.web.com/application/cache/compiles/2611883bc6a091641355bc23edf5c0d88d3d9bc9.php

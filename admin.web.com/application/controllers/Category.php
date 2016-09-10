@@ -24,7 +24,7 @@ class Category extends BaseController
     public function add()
     {
         $this->smarty->assign('fun_name', '新增栏目');
-        $this->smarty->display('category/add.tpl');
+        $this->smarty->display('category/detail.tpl');
     }
 
     public function doAdd()
@@ -46,7 +46,7 @@ class Category extends BaseController
         if($res['code'] === 0) {
             $this->smarty->assign('fun_name', '修改栏目');
             $this->smarty->assign('data', $res['data']);
-            $this->smarty->display('category/add.tpl');
+            $this->smarty->display('category/detail.tpl');
         }
         else {
             show_error($res['msg']);
@@ -58,9 +58,9 @@ class Category extends BaseController
     {
         $id = $this->input->post('id');
         $cate_name = $this->input->post('cateName');
-        $is_delete = $this->input->post('is_delete');
+        $status = $this->input->post('status');
         $priority = $this->input->post('priority');
-        $res = $this->category_service_model->Update($id, $cate_name, $priority, $is_delete);
+        $res = $this->category_service_model->Update($id, $cate_name, $priority, $status);
         if ($res['code'] !== 0){
             echo $res['msg'];
         } else {
@@ -71,12 +71,9 @@ class Category extends BaseController
     public function change()
     {
         $id = $this->input->get('id');
-        $res = $this->category_service_model->change($id);
-        if ($res['code'] !== 0){
-            echo $res['msg'];
-        } else {
-            header("Location:/category.html");
-        }
+        $status = $this->input->get('status');
+        $res = $this->category_service_model->change($id, $status);
+        echo json_encode($res);
     }
     
     public function cateTag()

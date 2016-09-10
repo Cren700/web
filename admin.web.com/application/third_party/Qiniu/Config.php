@@ -14,7 +14,7 @@ final class Config
     const UPDX_HOST = 'http://updx.qiniu.com';          // 电信上传Host
     const UPLT_HOST = 'http://uplt.qiniu.com';          // 联通上传Host
     const UPYD_HOST = 'http://upyd.qiniu.com';          // 移动上传Host
-    const UPBACKUP_HOST = 'http://upload.qiniu.com';    // 备用上传Host
+    const UPBACKUP_HOST = 'http://uploadify.qiniu.com';    // 备用上传Host
 
     const BLOCK_SIZE = 4194304; //4*1024*1024 分块上传块大小，该参数为接口规格，暂不支持修改
 

@@ -38,17 +38,17 @@
                         <ul>
                             <li class="clearfix">
                                 <span>栏目名称</span>
-                                <input type="text" name="cateName" value="<{$data['cate_name']|default:''}>" />
+                                <input type="text" name="cateName" value="<{$data['cate_name']|default:''}>"  autocomplete="off"  />
                             </li>
                             <li class="clearfix">
                                 <span>优&nbsp;&nbsp;先&nbsp;&nbsp;级</span>
-                                <input type="text" name="priority" value="<{$data['priority']|default:''}>" />
+                                <input type="text" name="priority" value="<{$data['priority']|default:''}>"  autocomplete="off" />
                             </li>
                             <{if isset($data)}>
                             <li class="clearfix">
                                 <span>是否使用</span>
-                                <label for="">使用:<input style="float: none;" type="radio" name="is_delete" value="0" <{if $data['is_delete'] eq 0}>checked<{/if}>></label>
-                                <label for="">禁用:<input style="float: none;"  type="radio" name="is_delete" value="1" <{if $data['is_delete'] eq 1}>checked<{/if}>></label>
+                                <label for="">使用:<input style="float: none;" type="radio" name="status" value="1" <{if $data['status'] eq 1}>checked<{/if}>></label>
+                                <label for="">禁用:<input style="float: none;"  type="radio" name="status" value="0" <{if $data['status'] eq 0}>checked<{/if}>></label>
                             </li>
                             <{/if}>
                         </ul>

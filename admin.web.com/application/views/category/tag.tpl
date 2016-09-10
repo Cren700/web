@@ -4,10 +4,8 @@
     <title>栏目标签</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/mCustomScrollbar/jquery.mCustomScrollbar.css">
     <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/jquery.mCustomScrollbar.js"></script>
     <script type="text/javascript" src="/js/commen.js"></script>
 
     <style>.mCSB_container{margin-right:0;}</style>
@@ -32,11 +30,11 @@
                     </ul>
                 </div>
                 <{if isset($data['tagList'])}>
-                <div class="base-infor-wrap">
+                <div class="new-commodity-wrap">
                     <ul>
                         <{foreach $data['tagList'] as $list}>
                         <li class="clearfix">
-                            <button><{$list['tag_name']}></button>
+                            <button class="js-url-btn" data-url="/article.html?tag_id=<{$list['id']}>"><{$list['tag_name']}></button>
                         </li>
                         <{/foreach}>
                     </ul>
@@ -44,8 +42,10 @@
                 <{else}>
                 <p>暂无标签信息</p>
                 <{/if}>
-                <a href="/category/addtag.html?cate_id=<{$cate_id}>">添加新标签</a>
-                <a href="/category/taglist.html">标签管理</a>
+                <p class="new-commodity-button clearfix">
+                    <input class="new-commodity-common-input js-url-btn" data-url="/category/addtag.html" type="button" value="添加新标签" />
+                    <input class="new-commodity-common-input js-url-btn" data-url="/category/taglist.html" type="button" value="标签管理" />
+                </p>
             </div>
         </div>
         <!-- 基本信息 end -->

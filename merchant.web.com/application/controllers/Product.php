@@ -22,7 +22,7 @@ class Product extends BaseController
             array('src' => baseJsUrl('common/jquery.form.js')),
         );
         $this->smarty->assign('htmlJsArr', $htmlJsArr);
-        $this->smarty->display('product/index.tpl');
+        $this->smarty->display('product/detail.tpl');
     }
 
     /**

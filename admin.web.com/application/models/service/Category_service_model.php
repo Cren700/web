@@ -47,12 +47,12 @@ class Category_service_model extends MY_Model
         return $res;
     }
     
-    public function update($id, $cate_name, $priority, $is_delete)
+    public function update($id, $cate_name, $priority, $status)
     {
         $res = array('code' => 0);
         $data = array();
         $data['priority'] = $priority;
-        $data['is_delete'] = $is_delete;
+        $data['status'] = $status;
         $cate_name ? $data['cate_name'] = $cate_name : '';
         $data['last_time'] = time();
         $where = array('id' => $id);
@@ -69,10 +69,12 @@ class Category_service_model extends MY_Model
         return $res;
     }
 
-    public function change($id)
+    public function change($id, $status)
     {
         $res = array('code' => 0);
-        $result = $this->category_dao_model->change($id);
+        $where = array('id' => $id);
+        $data = array('status' => 1-$status);
+        $result = $this->category_dao_model->update($where, $data);
         if(!$result){
             $res['code'] = 2;
             $res['msg'] = "更新不成功";
@@ -134,6 +136,11 @@ class Category_service_model extends MY_Model
             $res['code'] = -1;
         }
         return $res;
+    }
+
+    public function checkTagIdByTagid($tag_id)
+    {
+        return $this->category_dao_model->getTagInfoByTagId($tag_id);
     }
 
 }

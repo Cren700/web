@@ -36,11 +36,11 @@
                         <ul>
                             <li class="clearfix">
                                 <span>标签名称</span>
-                                <input type="text" name="tagName" value="<{$tagInfo['tag_name']|default:''}>" />
+                                <input type="text" name="tagName" value="<{$tagInfo['tag_name']|default:''}>" autocomplete="off"  />
                             </li>
                             <li class="clearfix">
                                 <span>优&nbsp;&nbsp;先&nbsp;&nbsp;级</span>
-                                <input type="text" name="priority" value="<{$tagInfo['priority']|default:''}>" />
+                                <input type="text" name="priority" value="<{$tagInfo['priority']|default:''}>"  autocomplete="off" />
                             </li>
                             <{if isset($tagInfo)}>
                             <li class="clearfix">

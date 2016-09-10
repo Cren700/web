@@ -24,7 +24,7 @@ class Category_dao_model extends MY_Model
     public function getCate($limit = 0)
     {
         if ($limit !== 0) {
-            $this->db->where('is_delete', 0);
+            $this->db->where('status', 1);
         }
         $this->db->order_by('priority', 'ASC');
         $query = $this->db->get($this->_cate_table);
@@ -41,13 +41,6 @@ class Category_dao_model extends MY_Model
     public function update($where, $data)
     {
         $this->db->update($this->_cate_table, $data, $where);
-        return $this->db->affected_rows();
-    }
-
-    public function change($id)
-    {
-        $sql = "UPDATE {$this->_cate_table} SET is_delete = 1 - is_delete AND last_time = ".time()." WHERE id = {$id}";
-        $this->db->query($sql);
         return $this->db->affected_rows();
     }
     
@@ -85,5 +78,6 @@ class Category_dao_model extends MY_Model
         $query = $this->db->get_where($this->_cateTag_table, array('id' => $tag_id), 1);
         return $query->row_array();
     }
+
     
 }

@@ -245,7 +245,7 @@
             var editor1 = K.create('textarea[name="description"],textarea[name="descriptionApp"]',
             {
                 cssPath : '',
-                uploadJson : '/upload/kindeditor',
+                uploadJson : '/uploadify/kindeditor',
                 fileManagerJson : '',
                 allowFileManager : true,
                 afterCreate : function()
@@ -263,7 +263,7 @@
         {
             runtimes: 'html5,flash,html4',    //上传模式,依次退化
             browse_button: 'btn',       //上传选择的点选按钮，**必需**
-            uptoken_url: '/upload/token?type=productcover',
+            uptoken_url: '/uploadify/token?type=productcover',
             // 默认 false，key为文件名。若开启该选项，SDK会为每个文件自动生成key（文件名）
             save_key: true,
             // 默认 false。若在服务端生成uptoken的上传策略中指定了 `sava_key`，则开启，SDK在前端将不对key进行任何处理

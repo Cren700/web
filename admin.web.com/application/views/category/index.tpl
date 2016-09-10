@@ -4,13 +4,9 @@
     <title>栏目管理</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/mCustomScrollbar/jquery.mCustomScrollbar.css">
     <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/jquery.mCustomScrollbar.js"></script>
     <script type="text/javascript" src="/js/commen.js"></script>
-
-    <style>.mCSB_container{margin-right:0;}</style>
 </head>
 <body>
 <!-- 主内容 start-->
@@ -31,124 +27,62 @@
                         <li class="current"><a href="javascript:;">基本信息</a></li>
                     </ul>
                 </div>
-                <div class="base-infor-wrap">
-                    <a href="/category/add.html">添加新栏目</a>
-                    <table cellspacing="3px" cellpadding="3px" border="1px solid #fff">
-                        <tr>
-                            <th>序号</th>
-                            <th>栏目名称</th>
-                            <th>优先级</th>
-                            <th>是否使用</th>
-                            <th>操作</th>
-                        </tr>
+                <{if $data['cate_list']|@count neq 0}>
+                <div class="wrap-right-list">
+                    <ul>
+                        <li class="thead clearfix">
+                            <div style="width: 15%;">栏目名称</div>
+                            <div style="width: 10%;">优先级</div>
+                            <div style="width: 10%;">是否使用</div>
+                            <div class="operatione-thead" style="width: 15%;">操作</div>
+                        </li>
                         <{foreach $data['cate_list'] as $k => $l}>
-                        <tr data-id="<{$l['id']}>">
-                            <td>
-                                <{$k+1}>
-                            </td>
-                            <td>
-                                <{$l['cate_name']}>
-                            </td>
-                            <td>
-                                <{$l['priority']}>
-                            </td>
-                            <td>
-                                <{if $l['is_delete']}>
-                                未使用
-                                <{else}>
-                                正在使用
-                                <{/if}>
-                            </td>
-                            <td>
+                        <li class="clearfix" >
+                            <div class="list-float" style="text-align: center; width: 15%;"><{$l['cate_name']}></div>
+                            <div class="list-float" style="text-align: center; width: 10%;"><{$l['priority']}></div>
+                            <div class="list-float js-status-show" style="text-align: center; width: 10%;"><{if $l['status'] eq 0}>禁用<{else}>正使用<{/if}></div>
+                            <div class="operation-list list-float" style="width: 15%; text-align: center">
                                 <a href="/category/update.html?id=<{$l['id']}>">修改</a>
-                                <a href="/category/change.html?id=<{$l['id']}>">
-                                    <{if $l['is_delete']}>
-                                    马上使用
-                                    <{else}>
-                                    暂不使用
-                                    <{/if}>
+                                <a href="javascript:;" class="js-btn-changeStatus" data-id="<{$l['id']}>"><{if $l['status']}><b data-status="1">禁用</b><{else}><b data-status="0">开启</b><{/if}>
                                 </a>
-                            </td>
-                        </tr>
+                            </div>
+                        </li>
                         <{/foreach}>
-
-                    </table>
+                    </ul>
                 </div>
+                <{else}>
+                <div style="padding-top:30px; font-size:18px; color:red">
+                    暂无相关数据
+                </div>
+                <{/if}>
+                <p class="new-commodity-button clearfix"><input class="new-commodity-common-input js-url-btn" data-url="/category/add.html" type="button" value="添加新栏目" /></p>
             </div>
         </div>
         <!-- 基本信息 end -->
     </div>
 </div>
 <!-- 主内容 end-->
-<!-- 弹窗 start-->
-<div class="window-wrap">
-    <div class="window-wrap-common">
-        <div class="window-wrap-head clearfix">
-            <span>修改密码</span>
-            <a href="javascript:;" class="window-close"><img src="/images/common/icon-close.png" alt=""></a>
-        </div>
-        <form id='updatepwd' action='/merchant/doUpdatepwd' method="post">
-            <div class="window-wrap-body">
-                <!-- 订单退款 -->
-                <div class="window-body-common change-password">
-                    <ul>
-                        <li class="clearfix">
-                            <span>原&nbsp;密&nbsp;&nbsp;码</span>
-                            <input type="password" name="password">
-                        </li>
-                        <li class="clearfix">
-                            <span>新&nbsp;密&nbsp;&nbsp;码</span>
-                            <input type="password" name="newpwd">
-                        </li>
-                        <li class="clearfix">
-                            <span>确认密码</span>
-                            <input type="password" name="renewpwd">
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="window-wrap-foot">
-                <div class="window-wrap-button clearfix">
-                    <span class="window-button-btnLeft">取消</span>
-                    <span class="window-button-btnRight"><input type="submit" value="提交"></span>
-                </div>
-            </div>
-    </div>
-    </form>
-</div>
-<!-- 弹窗 end-->
 <script type="text/javascript" src="/js/jquery.form.js"></script>
 <script type="text/javascript">
     $(function()
     {
-        $("#merchant_info").submit(function()
-        {
-            var opt = {
-                dataType: 'json',
-                type: 'post',
-                success: function (data)
-                {
-                    console.log(data);
-                    alert(data.msg);
+        $('.js-btn-changeStatus').on('click', function () {
+            var _this = $(this);
+            var cate_id = $(this).attr('data-id'),
+                    status = $(this).find('b').attr('data-status'),
+                    url = "/category/change.html";
+            var data = {id: cate_id, status: status};
+            $.getJSON(url, data, function (res) {
+                if(res['code'] === 0) {
+                    var op_status = 1 - status ? '禁用' : '开启',
+                        status_show = 1- status ? '正使用' : '禁用';
+                    _this.find('b').text(op_status).attr('data-status', 1- status);
+                    _this.parents('li').find('div.js-status-show').text(status_show);
+                } else {
+                    alert(res['msg']);
                 }
-            };
-            $(this).ajaxSubmit(opt);
-            return false;
-        });
-        $("#updatepwd").submit(function()
-        {
-            var opt = {
-                dataType: 'json',
-                type: 'post',
-                success: function (data)
-                {
-                    console.log(data);
-                    alert(data.msg);
-                }
-            };
-            $(this).ajaxSubmit(opt);
-            return false;
-        });
+            });
+        })
     });
 </script>
 </body>
