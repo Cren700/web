@@ -132,14 +132,18 @@ class BaseController extends MY_Controller
             'stat'                          => 'stat',
             'sysmassage'                    => 'sysmassage',
             'sysmassage/getmsgcount'        => 'sysmassage',
-            'category.html'                      => 'category',
+            'category'                      => 'category',
             'product/add'                   => 'product',
             'order'                         => 'order',
             'order/undeal'                  => 'order',
             'service/lists'                 => 'service',
-            'service/serv'                  => 'service'
+            'service/serv'                  => 'service',
+            'banner'                        => 'banner',
+            'banner/add'                    => 'banner'
+            
+
         );
-        $this->smarty->assign('category', $cate['data']);
+        $this->smarty->assign('cate', $cate['data']);
         $this->smarty->assign('class', isset($class[$url]) ? $class[$url] : '');
         $this->smarty->assign('url', $url);
 

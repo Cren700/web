@@ -1,17 +1,9 @@
 
 .idea/copyright/profiles_settings.xml
-
 .idea/modules.xml
-
 .idea/vcs.xml
-
 .idea/web.iml
-
 .idea/workspace.xml
-
-
-*/application/cache/
-
 cms.web.com/
-
-admin.web.com/application/cache/
+/admin.web.com/upload/
+/admin.web.com/application/

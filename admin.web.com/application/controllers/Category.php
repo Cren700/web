@@ -76,9 +76,9 @@ class Category extends BaseController
         echo json_encode($res);
     }
     
-    public function cateTag()
+    public function cateTag($id = 0)
     {
-        $cate_id = $this->input->get('cate_id');
+        $cate_id = $id ? : $this->input->get('cate_id');
         $res = $this->category_service_model->getCateTagByCateId($cate_id);
         if($res['code'] !== 0) {
             echo "cateTag wrong!";
