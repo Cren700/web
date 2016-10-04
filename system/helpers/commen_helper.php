@@ -68,6 +68,8 @@ function dbEscape($data)
     }
     if (is_string($data)) {
         $tmp = addslashes($data);
+    } else {
+        $tmp = $data;
     }
     return $tmp;
 }

@@ -5,5 +5,9 @@
 .idea/web.iml
 .idea/workspace.xml
 cms.web.com/
+demo.web.com/
 /admin.web.com/upload/
 /admin.web.com/application/
+/www.web.com/application/cache
+/www.web.com/session_file/
+/www.web.com/.idea/
