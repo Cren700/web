@@ -1,13 +1,13 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2016-07-17 11:47:00
-         compiled from "application/views/product/detail.tpl" */ ?>
+<?php /* Smarty version Smarty-3.1.19, created on 2016-10-16 19:50:35
+         compiled from "application/views/product/add.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:162476124578a02a388d057-81380263%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '3a5e9128dbdc0a44a881c39a18b1173623a01b87' => 
     array (
-      0 => 'application/views/product/detail.tpl',
-      1 => 1468727217,
+      0 => 'application/views/product/add.tpl',
+      1 => 1476618634,
       2 => 'file',
     ),
   ),
@@ -37,7 +37,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <label for="">产品销售价<input type="text" name="salePrice"></label>
         <label for="">产品门市价<input type="text" name="marketPrice"></label>
         <label for="">支持协议: <span>支持退款</span> <input type="checkbox" name="productProtocol[]" value="1"><span>24小时服务</span> <input type="checkbox" name="productProtocol[]" value="2"></label>
-        <label for="">营销标签: <span>推荐</span><input type="radio" name="promotionTag" value="1"><span>热门精选</span><input type="radio" name="promotionTag" value="2"><span>大甩卖</span><input type="radio" name="promotionTag" value="3"></label>
+        <label for="">
+            营销标签:
+            <input type="radio" name="promotionTag" value="1"><span>推荐</span>
+            <input type="radio" name="promotionTag" value="2"><span>热门精选</span>
+            <input type="radio" name="promotionTag" value="3"><span>大甩卖</span>
+        </label>
         <label for="">产品标签: <span>周年庆</span><input type="radio" name="productTag" value="1"></label>
         <label for="">本单详情<input type="text" name="productDetail"></label>
         <label for=""><input type="button" id="js-submit" value="Submit"> <input type="reset" value="重置"></label>

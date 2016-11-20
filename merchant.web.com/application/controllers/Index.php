@@ -15,7 +15,7 @@ class Index extends BaseController
     }
 
     public function index() {
-        $this->smarty->display('index/detail.tpl');
+        $this->smarty->display('index/index.tpl');
     }
 
     public function home() {
